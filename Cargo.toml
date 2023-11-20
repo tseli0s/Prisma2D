@@ -1,0 +1,30 @@
+[package]
+name    = "prisma2d"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Software-only 2D graphics crate"
+repository  = "https://github.com/tseli0s/Prisma2D"
+keywords    = [ "graphics", "software-render", "cpu", "2d-graphics" ]
+
+[dependencies]
+# Only two optional dependencies wow I'm proud of myself
+rayon = { version = "1.8", default-features = false, optional = true }
+
+[dev-dependencies]
+# Provides us with a framebuffer to test the library upon.
+# We could've used softbuffer or another alternative but pixels
+# is hardware-accelerated.
+pixels     = "0.13.0"
+winit      = "0.28.7"
+log        = "0.4"
+env_logger = "0.10"
+rand       = "0.8"
+
+[features]
+default      = [ "nostd", "transparency", "aggr_inline" ]
+threading    = [ "rayon" ]
+aggr_inline  = []
+nostd        = []
+transparency = []
+images       = []
